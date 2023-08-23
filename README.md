@@ -5,7 +5,7 @@
 
 ## 镜像展示(以谷歌为例）
 
-![](.demo/demo.png)
+![](./demo/demo.png)
 ## 部署
 
 > 需 https 域名
