@@ -1,4 +1,4 @@
-# go-proxy-vercel
+# go-proxy
 用 Vue3 和 Go 搭建镜像站点，可用于大部分网站
 
 ## 本项目修改于[go-proxy-bingai](https://github.com/adams549659584/go-proxy-bingai)
