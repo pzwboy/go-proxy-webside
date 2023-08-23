@@ -16,12 +16,50 @@
 
 一键部署，点这里 => [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/pzwboy/go-proxy)
 
+### Docker（从原项目复制来的，不保证100%可用）
+
+> 参考 [Dockerfile](./docker/Dockerfile) 、[docker-compose.yml](./docker/docker-compose.yml)
+
+- docker 示例
+
+```bash
+# 运行容器 监听8080 端口
+docker run -d -p 8080:8080 --name go-proxy --restart=unless-stopped pzwboy/go-proxy
+
+# 配置 socks 环境变量
+docker run -e Go_Proxy_BingAI_SOCKS_URL=192.168.0.88:1070 -e Go_Proxy_BingAI_SOCKS_USER=xxx -e Go_Proxy_BingAI_SOCKS_PWD=xxx -d -p 8080:8080 --name go-proxy-bingai --restart=unless-stopped pzwboy/go-proxy
+```
+
+- docker compose 示例
+
+```yaml
+version: '3'
+
+services:
+  go-proxy-bingai:
+    # 镜像名称
+    image: pzwboy/go-proxy
+    # 容器名称
+    container_name: go-proxy-bingai  
+    # 自启动
+    restart: unless-stopped
+    ports:
+      - 8080:8080
+    # environment:
+    #   - Go_Proxy_BingAI_SOCKS_URL=192.168.0.88:1070
+    #   - Go_Proxy_BingAI_SOCKS_USER=xxx
+    #   - Go_Proxy_BingAI_SOCKS_PWD=xxx
+    #   - Go_Proxy_BingAI_USER_TOKEN_1=xxx
+    #   - Go_Proxy_BingAI_USER_TOKEN_2=xxx    
+```
 ## 设置镜像网站
 
 修改项目的`common/proxy.go`
 
 将
 
-`	BING_URL, _        = url.Parse("")`
+```
+	BING_URL, _        = url.Parse("")`
+```
 
 的`("")`中添加需要被制作镜像的网站域名即可
