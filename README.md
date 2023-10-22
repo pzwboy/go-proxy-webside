@@ -6,6 +6,8 @@
 ## 镜像展示(以谷歌为例）
 
 ![](./demo/demo.png)
+
+[Demo](https://google.pzwboy.tk/webhp)
 ## 部署
 
 > 需 https 域名
